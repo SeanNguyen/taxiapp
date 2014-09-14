@@ -228,6 +228,13 @@ h6 { font-size: 14px; margin: 0 0 5px; padding: 0; }
 	background: url(images/tooplate_middle.png);
 }
 
+#timeController {
+	font-size:40px;
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: black;
+	color:#F00;	
+}
+
 #mid_title { 
 	font-size: 34px; 
 	font-weight: 400; 

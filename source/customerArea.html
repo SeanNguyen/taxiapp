@@ -39,6 +39,41 @@ $(document).ready(function() {
 	});
 });
 </script>
+
+<script>
+var isTaxiNeeded = false;
+
+function onIncreaseButtonClick() {
+	if (isTaxiNeeded)
+		return
+	var labelText = $("#timeLable").text();
+	var timeOut = parseInt(labelText);
+	timeOut += 5;
+	document.getElementById("timeLable").innerHTML = timeOut;
+}
+
+function onDecreaseButtonClick() {
+	if (isTaxiNeeded)
+		return
+	var labelText = $("#timeLable").text();
+	var timeOut = parseInt(labelText);
+	if (timeOut > 0)
+		timeOut -= 5;
+	document.getElementById("timeLable").innerHTML = timeOut;
+}
+
+function onChageStatusButtonClick() {
+	var statusIcon = document.getElementById("statusPicture");
+	if (!isTaxiNeeded) {
+		statusIcon.src = "images/needTaxiStatus.png";
+	} else {
+		statusIcon.src = "images/noNeedTaxiStatus.png";
+	}
+	isTaxiNeeded = !isTaxiNeeded;
+}
+
+</script>
+
 <!--////// END  \\\\\\\-->
 
 </head>
@@ -51,13 +86,22 @@ $(document).ready(function() {
 	
 	<div id="tooplate_header">
     
-    	<div id="site_title"><h1><a rel="nofollow" >Free Website Templates</a></h1></div>        
+    	<div id="site_title">
+    	  <h1><a href="index.html" rel="nofollow" >Free Website Templates</a></h1></div>        
         
     </div> <!-- end of header -->
     
-    <div id="tooplate_middle" align="center">
-      <p> <img src="images/noNeedTaxiStatus.png" width="100" height="100" alt="DON'T NEED TAXI" /> </p>
-      <p><img name="changeStatusButton" src="images/changeStatusButton.png" alt="CHANGE STATUS" width="150" height="50"/> </p>
+  <div id="tooplate_middle" align="center">
+      <div id="timeController">
+      	<img name="upArrow" src="images/upArrow.png" alt="UP" width="50" height="30" onclick="onIncreaseButtonClick()"/>
+      	<img name="downArrow" src="images/downArrow.png" alt="DOWN" width="50" height="30" onclick="onDecreaseButtonClick()"/>
+        <label id="timeLable" name="timeLable">0</label>
+        <label>mins</label>
+      </div>
+    <p>&nbsp;</p>
+      <p> <img id="statusPicture" src="images/noNeedTaxiStatus.png" width="100" height="100" alt="DON'T NEED TAXI" /> </p>
+    <p><img name="changeStatusButton" src="images/changeStatusButton.png" alt="CHANGE STATUS" width="150" height="50"
+      		onclick="onChageStatusButtonClick()"/> </p>
     </div> 
     <!-- end of middle -->
     
@@ -72,7 +116,7 @@ $(document).ready(function() {
 <div id="tooplate_footer_wrapper">
     <div id="tooplate_footer">
     
-        Copyright © 2014 <a href="#">Taxi123</a> - Designed by <a rel="nofollow" href="http://www.tooplate.com" target="_parent">Sean Nguyen</a>
+        Copyright © 2014 Taxi123 - Designed by Sean Nguyen
     
     </div> <!-- end of tooplate_footer -->
 </div>

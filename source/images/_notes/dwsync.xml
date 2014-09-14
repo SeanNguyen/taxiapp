@@ -25,4 +25,7 @@
 <file name="tooplate_menu_divider.png" server="test7654.site90.com/public_html/" local="129607379540000000" remote="130551498000000000" Dst="0" />
 <file name="tooplate_middle.png" server="test7654.site90.com/public_html/" local="129607379720000000" remote="130551498000000000" Dst="0" />
 <file name="tooplate_more.png" server="test7654.site90.com/public_html/" local="129607379740000000" remote="130551498600000000" Dst="0" />
+<file name="changeStatusButton.png" server="test7654.site90.com/public_html/" local="130551963460632846" remote="130551535800000000" Dst="0" />
+<file name="needTaxiStatus.png" server="test7654.site90.com/public_html/" local="130551955080453527" remote="130551535800000000" Dst="0" />
+<file name="noNeedTaxiStatus.png" server="test7654.site90.com/public_html/" local="130551956585689622" remote="130551535800000000" Dst="0" />
 </dwsync>
