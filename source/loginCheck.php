@@ -31,9 +31,9 @@ if($count==1){
 // Register $myusername, $mypassword and redirect to file "customer_area.php"
 session_register("username");
 session_register("password"); 
-header("location:customerArea.php");
+header("location:customerArea.html");
 }
 else {
-echo "Wrong Username or Password";
+header("location:loginError.html");
 }
 ?>
