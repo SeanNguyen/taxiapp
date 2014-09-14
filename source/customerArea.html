@@ -1,0 +1,78 @@
+<?php
+session_start();
+if(!session_is_registered(username)){
+header("location:login.php");
+}
+?>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Blue Arc Theme - Photo Gallery</title>
+<meta name="keywords" content="blue, arc, theme, free templates, website templates, CSS, HTML" />
+<meta name="description" content="Blue Arc Theme is a free website template provided by tooplate.com" />
+<link href="tooplate_style.css" rel="stylesheet" type="text/css" />
+
+<!--////// CHOOSE ONE OF THE 3 PIROBOX STYLES  \\\\\\\-->
+<link href="css_pirobox/white/style.css" media="screen" title="shadow" rel="stylesheet" type="text/css" />
+<!--<link href="css_pirobox/white/style.css" media="screen" title="white" rel="stylesheet" type="text/css" />
+<link href="css_pirobox/black/style.css" media="screen" title="black" rel="stylesheet" type="text/css" />-->
+<!--////// END  \\\\\\\-->
+
+<!--////// INCLUDE THE JS AND PIROBOX OPTION IN YOUR HEADER  \\\\\\\-->
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/piroBox.1_2.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+	$().piroBox({
+			my_speed: 600, //animation speed
+			bg_alpha: 0.5, //background opacity
+			radius: 4, //caption rounded corner
+			scrollImage : false, // true == image follows the page, false == image remains in the same open position
+			pirobox_next : 'piro_next', // Nav buttons -> piro_next == inside piroBox , piro_next_out == outside piroBox
+			pirobox_prev : 'piro_prev',// Nav buttons -> piro_prev == inside piroBox , piro_prev_out == outside piroBox
+			close_all : '.piro_close',// add class .piro_overlay(with comma)if you want overlay click close piroBox
+			slideShow : 'slideshow', // just delete slideshow between '' if you don't want it.
+			slideSpeed : 4 //slideshow duration in seconds(3 to 6 Recommended)
+	});
+});
+</script>
+<!--////// END  \\\\\\\-->
+
+</head>
+<body>
+
+<div id="tooplate_wrapper">
+	
+    <div id="tooplate_menu"> </div> 
+    <!-- end of tooplate_menu -->
+	
+	<div id="tooplate_header">
+    
+    	<div id="site_title"><h1><a rel="nofollow" href="http://www.tooplate.com">Free Website Templates</a></h1></div>        
+        
+    </div> <!-- end of header -->
+    
+    <div id="tooplate_middle"></div> 
+    <!-- end of middle -->
+    
+    <div id="tooplate_main">
+      <div class="cleaner"></div>
+            
+                   
+    </div> <!-- end of main -->
+    
+</div> <!-- end of wrapper -->
+
+<div id="tooplate_footer_wrapper">
+    <div id="tooplate_footer">
+    
+        Copyright © 2014 <a href="#">Taxi123</a> - Designed by <a rel="nofollow" href="http://www.tooplate.com" target="_parent">Sean Nguyen</a>
+    
+    </div> <!-- end of tooplate_footer -->
+</div>
+
+</body>
+</html>
