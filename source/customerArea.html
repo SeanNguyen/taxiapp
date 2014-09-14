@@ -42,34 +42,49 @@ $(document).ready(function() {
 
 <script>
 var isTaxiNeeded = false;
+var timeOut = 300000;
+var timer;
 
 function onIncreaseButtonClick() {
 	if (isTaxiNeeded)
 		return
-	var labelText = $("#timeLable").text();
-	var timeOut = parseInt(labelText);
-	timeOut += 5;
-	document.getElementById("timeLable").innerHTML = timeOut;
+	timeOut += 5*60*1000;
+	document.getElementById("timeMinLable").innerHTML = Math.floor(timeOut / 60000);
+	document.getElementById("timeSecLable").innerHTML = timeOut / 1000 % 60;
 }
 
 function onDecreaseButtonClick() {
 	if (isTaxiNeeded)
 		return
-	var labelText = $("#timeLable").text();
-	var timeOut = parseInt(labelText);
-	if (timeOut > 0)
-		timeOut -= 5;
-	document.getElementById("timeLable").innerHTML = timeOut;
+	if (timeOut >= 300000) {
+		timeOut -= 5*60*1000;
+	} else if (timeOut > 0) {
+		timeOut = 0;
+	}
+	document.getElementById("timeMinLable").innerHTML = Math.floor(timeOut / 60000);
+	document.getElementById("timeSecLable").innerHTML = timeOut / 1000 % 60;
 }
 
 function onChageStatusButtonClick() {
 	var statusIcon = document.getElementById("statusPicture");
-	if (!isTaxiNeeded) {
+	if (!isTaxiNeeded && timeOut > 0) {
 		statusIcon.src = "images/needTaxiStatus.png";
-	} else {
+		timer = setInterval(function(){tick()}, 1000);
+	} else if (isTaxiNeeded) {
 		statusIcon.src = "images/noNeedTaxiStatus.png";
+		clearInterval(timer);
 	}
 	isTaxiNeeded = !isTaxiNeeded;
+}
+
+function tick() {
+	if (timeOut == 0) {
+		onChageStatusButtonClick();
+	} else if (timeOut > 0) {
+		timeOut -= 1000;
+	}
+	document.getElementById("timeMinLable").innerHTML = Math.floor(timeOut / 60000);
+	document.getElementById("timeSecLable").innerHTML = timeOut / 1000 % 60;
 }
 
 </script>
@@ -95,7 +110,9 @@ function onChageStatusButtonClick() {
       <div id="timeController">
       	<img name="upArrow" src="images/upArrow.png" alt="UP" width="50" height="30" onclick="onIncreaseButtonClick()"/>
       	<img name="downArrow" src="images/downArrow.png" alt="DOWN" width="50" height="30" onclick="onDecreaseButtonClick()"/>
-        <label id="timeLable" name="timeLable">0</label>
+        <label id="timeMinLable" name="timeLable">5</label>
+        <label name="timeLable">:</label>
+        <label id="timeSecLable" name="timeLable">00</label>
         <label>mins</label>
       </div>
     <p>&nbsp;</p>

@@ -28,4 +28,6 @@
 <file name="changeStatusButton.png" server="test7654.site90.com/public_html/" local="130551963460632846" remote="130551535800000000" Dst="0" />
 <file name="needTaxiStatus.png" server="test7654.site90.com/public_html/" local="130551955080453527" remote="130551535800000000" Dst="0" />
 <file name="noNeedTaxiStatus.png" server="test7654.site90.com/public_html/" local="130551956585689622" remote="130551535800000000" Dst="0" />
+<file name="downArrow.png" server="test7654.site90.com/public_html/" local="130551991888568205" remote="130551586800000000" Dst="0" />
+<file name="upArrow.png" server="test7654.site90.com/public_html/" local="130551992521594412" remote="130551586800000000" Dst="0" />
 </dwsync>
