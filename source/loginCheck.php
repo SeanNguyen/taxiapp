@@ -1,14 +1,14 @@
 <?php
 
-$host="localhost"; // Your server
-$username=""; // Mysql username 
-$password=""; // Mysql password 
-$db_name="customer"; // Database name 
-$tbl_name="members"; // Table name 
+$host="mysql4.000webhost.com"; // Your server
+$db_name="a9556932_taxi"; // Database name 
+$db_username="a9556932_sean"; // Mysql username 
+$db_password="prince746362"; // Mysql password 
+$tbl_name="clients"; // Table name 
 
 // Connect to server and select databse.
-mysql_connect("$host", "$username", "$password")or die("cannot connect"); 
-mysql_select_db("$db_name")or die("cannot select DB");
+mysql_connect("$host", "$db_username", "$db_password")or die(mysql_error()); 
+mysql_select_db("$db_name")or die(mysql_error());
 
 // username and password sent from form 
 $username=$_POST['username']; 
@@ -31,7 +31,7 @@ if($count==1){
 // Register $myusername, $mypassword and redirect to file "customer_area.php"
 session_register("username");
 session_register("password"); 
-header("location:customer_area.php");
+header("location:customerArea.php");
 }
 else {
 echo "Wrong Username or Password";
