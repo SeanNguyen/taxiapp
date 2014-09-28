@@ -9,4 +9,6 @@
 <file name="tooplate_style.css" server="test7654.site90.com/public_html/" local="130552018381633522" remote="130551586800000000" Dst="0" />
 <file name="customerArea.html" server="test7654.site90.com/public_html/" local="130552043022182881" remote="130551611400000000" Dst="0" />
 <file name="loginError.html" server="test7654.site90.com/public_html/" local="130552006109601602" remote="130551586800000000" Dst="0" />
+<file name="queryIdStatus.php" server="test7654.site90.com/public_html/" local="130563597181144899" remote="130563165600000000" Dst="0" />
+<file name="queryAllLocations.php" server="test7654.site90.com/public_html/" local="130563597876683221" remote="130563165600000000" Dst="0" />
 </dwsync>

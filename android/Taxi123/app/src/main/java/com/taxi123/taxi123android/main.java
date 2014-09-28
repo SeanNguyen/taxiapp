@@ -1,19 +1,23 @@
-package com.taxi123.taaxi123android;
+package com.taxi123.taxi123android;
 
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.view.View;
+import android.widget.ListView;
 
 public class main extends Activity {
-
+    LocationAdapter locationAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Configurations.MainActivity = this;
+        ListView locationListView = (ListView) findViewById(R.id.locationListView);
+        this.locationAdapter = new LocationAdapter(this);
+        locationListView.setAdapter(locationAdapter);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -24,13 +28,13 @@ public class main extends Activity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
+
+    public void refreshButton_onClick(View view) {
+        this.locationAdapter.refreshLocationList();
+    }
+
+    //private helper methods
 }
