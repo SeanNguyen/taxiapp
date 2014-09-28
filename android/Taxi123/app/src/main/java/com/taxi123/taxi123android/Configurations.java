@@ -8,8 +8,8 @@ public class Configurations {
     public static String BOOLEAN_TRUE = "1";
     public static String BOOLEAN_FALSE = "0";
 
-    public static String SERVER_LINKQUERY_ALL = "http://test7654.site90.com/queryAllLocations.php";
-    public static String SERVER_LINKQUERY_IDSTATUS = "http://test7654.site90.com/queryAllLocations.php";
+    public static String SERVER_LINKQUERY_ALL = "http://taxi.seannguyentesting.net/queryAllLocations.php";
+    public static String SERVER_LINKQUERY_IDSTATUS = "http://taxi.seannguyentesting.net/queryIdStatus.php";
 
     public static String DATABASE_JSONRESPONSE_LOCATIONS = "locations";
     public static String DATABASE_JSONRESPONSE_SUCCESS = "success";

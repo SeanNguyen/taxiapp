@@ -1,13 +1,12 @@
 <?php
 
-$host="mysql4.000webhost.com"; // Your server
-$db_name="a9556932_taxi"; // Database name 
-$db_username="a9556932_sean"; // Mysql username 
-$db_password="prince746362"; // Mysql password 
-$tbl_name="clients"; // Table name 
+$db_name="seannguy_taxi123"; // Database name 
+$db_username="seannguy_admin"; // Mysql username 
+$db_password="admin"; // Mysql password 
+$tbl_name="locations"; // Table name 
 
 // Connect to server and select databse.
-mysql_connect("$host", "$db_username", "$db_password")or die(mysql_error()); 
+mysql_connect(localhost, "$db_username", "$db_password")or die(mysql_error()); 
 mysql_select_db("$db_name")or die(mysql_error());
 
 // username and password sent from form 
@@ -29,8 +28,8 @@ $count=mysql_num_rows($result);
 if($count==1){
 
 // Register $myusername, $mypassword and redirect to file "customer_area.php"
-session_register("username");
-session_register("password"); 
+$_SESSION['name'] = $name;
+$_SESSION['password'] = $password;
 header("location:customerArea.html");
 }
 else {

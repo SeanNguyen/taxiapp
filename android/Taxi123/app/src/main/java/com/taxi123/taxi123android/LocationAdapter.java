@@ -8,25 +8,15 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-/**
- * Created by Sean Nguyen on 15/9/2014.
- */
-
 public class LocationAdapter extends BaseAdapter {
 
     //private attributes
     private LocationListModel locations;
-    private Context context;
     private LayoutInflater inflater;
-
-    public LocationAdapter() {
-        super();
-    }
 
     public LocationAdapter(Context c) {
         super();
         this.locations = new LocationListModel(this);
-        this.context = context;
         this.inflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 

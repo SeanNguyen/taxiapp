@@ -1,11 +1,10 @@
 <?php
-$host="mysql4.000webhost.com"; // Your server
-$db_name="a9556932_taxi"; // Database name 
-$db_username="a9556932_sean"; // Mysql username 
-$db_password="prince746362"; // Mysql password 
-$tbl_name="clients"; // Table name 
+$db_name="seannguy_taxi123"; // Database name 
+$db_username="seannguy_admin"; // Mysql username 
+$db_password="admin"; // Mysql password 
+$tbl_name="locations"; // Table name 
 
-$con = mysqli_connect("$host","$db_username","$db_password","$db_name");
+$con = mysqli_connect(localhost,"$db_username","$db_password","$db_name");
 // Check connection
 if (mysqli_connect_errno()) {
   echo "Failed to connect to MySQL: " . mysqli_connect_error();
