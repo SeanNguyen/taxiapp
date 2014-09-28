@@ -1,7 +1,6 @@
 package com.taxi123.taxi123android;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -26,10 +25,10 @@ public class DataCollector extends AsyncTask<String,Void,String> {
     private ProgressDialog dialog;
 
 
-    public DataCollector(Context context, LocationListModel model) {
+    public DataCollector(LocationListModel model) {
         this.model = model;
         isQueryFull = true;
-        dialog = new ProgressDialog(context);
+        dialog = new ProgressDialog(Configurations.MainActivity);
     }
 
     @Override

@@ -40,12 +40,12 @@ public class LocationListModel extends Model {
 
     public void refreshLocationList() {
         this.locationModels.clear();
-        DataCollector dataCollector = new DataCollector(Configurations.MainActivity, this);
+        DataCollector dataCollector = new DataCollector(this);
         dataCollector.execute(Configurations.DATACOLLECTOR_FULL);
     }
 
     public void refreshLocationStatus() {
-        DataCollector dataCollector = new DataCollector(Configurations.MainActivity, this);
+        DataCollector dataCollector = new DataCollector(this);
         dataCollector.execute(Configurations.DATACOLLECTOR_MIN);
     }
 

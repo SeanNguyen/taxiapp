@@ -23,7 +23,7 @@ public class Configurations {
     public static String DATACOLLECTOR_MIN = "min";
 
     public static String COLOR_INDEMAND = "#008000";
-    public static String COLOR_NOTINDEMAND = "#8B0000";
+    public static String COLOR_NOTINDEMAND = "#696969";
 
     public static String MESSAGE_LOADING = "Loading";
 

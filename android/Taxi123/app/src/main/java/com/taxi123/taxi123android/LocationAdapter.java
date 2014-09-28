@@ -51,15 +51,23 @@ public class LocationAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (view == null) {
-            view = inflater.inflate(android.R.layout.simple_list_item_1, viewGroup, false);
+            view = inflater.inflate(R.layout.listview_item_custom, null);
         }
         LocationModel location = this.locations.getLocationByIndex(i);
-        TextView locationName = (TextView) view.findViewById(android.R.id.text1);
+        TextView locationName = (TextView) view.findViewById(R.id.locationName);
+        TextView locationAddr = (TextView) view.findViewById(R.id.locationAddress);
+        TextView postalCode = (TextView) view.findViewById(R.id.postalCode);
         locationName.setText(location.getName());
+        locationAddr.setText(location.getAddress());
+        postalCode.setText("(" + location.getPostalCode() + ")");
         if (location.getStatus() == 1) {
             locationName.setTextColor(Color.parseColor(Configurations.COLOR_INDEMAND));
+            locationAddr.setTextColor(Color.parseColor(Configurations.COLOR_INDEMAND));
+            postalCode.setTextColor(Color.parseColor(Configurations.COLOR_INDEMAND));
         } else if (location.getStatus() == 0) {
             locationName.setTextColor(Color.parseColor(Configurations.COLOR_NOTINDEMAND));
+            locationAddr.setTextColor(Color.parseColor(Configurations.COLOR_NOTINDEMAND));
+            postalCode.setTextColor(Color.parseColor(Configurations.COLOR_NOTINDEMAND));
         }
         return view;
     }
