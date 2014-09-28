@@ -48,8 +48,10 @@ public class DataCollector extends AsyncTask<String,Void,String> {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        this.dialog.setMessage(Configurations.MESSAGE_LOADING);
-        this.dialog.show();
+        if (isQueryFull) {
+            this.dialog.setMessage(Configurations.MESSAGE_LOADING);
+            this.dialog.show();
+        }
     }
 
     @Override
