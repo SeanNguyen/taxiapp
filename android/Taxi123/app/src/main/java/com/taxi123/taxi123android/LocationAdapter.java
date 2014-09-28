@@ -75,4 +75,8 @@ public class LocationAdapter extends BaseAdapter {
     public void refreshLocationList() {
         this.locations.refreshLocationList();
     }
+
+    public void refreshStatus() {
+        this.locations.refreshLocationStatus();
+    }
 }

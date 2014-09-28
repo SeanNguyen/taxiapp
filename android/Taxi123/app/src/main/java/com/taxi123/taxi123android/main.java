@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -23,6 +24,8 @@ public class main extends Activity {
         locationListView.setAdapter(locationAdapter);
         this.locationAdapter.refreshLocationList();
 
+
+        //link to google map app when click
         locationListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -31,6 +34,18 @@ public class main extends Activity {
                 openGoogleMap(address);
             }
         });
+
+        //Timer for refresh data status
+        final Handler h = new Handler();
+        h.postDelayed(new Runnable()
+        {
+            @Override
+            public void run()
+            {
+                ((main)Configurations.MainActivity).refreshStatus();
+                h.postDelayed(this, 5000);
+            }
+        }, 5000); // 1 second delay (takes millis)
     }
 
     @Override
@@ -46,9 +61,12 @@ public class main extends Activity {
         return id == R.id.action_settings || super.onOptionsItemSelected(item);
     }
 
-
     public void refreshButton_onClick(View view) {
         this.locationAdapter.refreshLocationList();
+    }
+
+    public void refreshStatus() {
+        this.locationAdapter.refreshStatus();
     }
 
     //private helper methods
