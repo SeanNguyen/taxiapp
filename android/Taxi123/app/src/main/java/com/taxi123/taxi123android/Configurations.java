@@ -13,7 +13,7 @@ public class Configurations {
 
     public static String DATABASE_JSONRESPONSE_LOCATIONS = "locations";
     public static String DATABASE_JSONRESPONSE_SUCCESS = "success";
-    public static String DATABASE_JSONRESPONSE_LOCATIONID = "lid";
+    public static String DATABASE_JSONRESPONSE_LOCATIONID = "memberID";
     public static String DATABASE_JSONRESPONSE_LOCATIONNAME = "locationName";
     public static String DATABASE_JSONRESPONSE_ADDRESS = "address";
     public static String DATABASE_JSONRESPONSE_POSTALCODE = "postalCode";

@@ -12,4 +12,6 @@
 <file name="getLocationAddress.php" server="sgp12.siteground.asia/public_html/taxi/" local="130565915248874443" remote="130565446800000000" Dst="0" />
 <file name="getLocationRequestTimeout.php" server="sgp12.siteground.asia/public_html/taxi/" local="130565942925087432" remote="130565474400000000" Dst="0" />
 <file name="updateLocationStatus.php" server="sgp12.siteground.asia/public_html/taxi/" local="130566131871614555" remote="130565663400000000" Dst="0" />
+<file name="queryIdStatus.php" server="sgp12.siteground.asia/public_html/taxi/" local="130563898597473851" remote="130565674200000000" Dst="0" />
+<file name="queryAllLocations.php" server="sgp12.siteground.asia/public_html/taxi/" local="130566151165608109" remote="130565683200000000" Dst="0" />
 </dwsync>

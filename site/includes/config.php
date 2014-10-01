@@ -10,6 +10,7 @@ define('DBHOST','localhost');
 define('DBUSER','seannguy_admin');
 define('DBPASS','admin');
 define('DBNAME','seannguy_taxi123');
+define('TBLMEMBERS', 'members');
 
 //application address
 define('DIR','http://taxi.seannguyentesting.net/');
