@@ -1,6 +1,10 @@
-package com.taxi123.taxi123android;
+package com.taxi123.taxi123android.collector;
 
 import android.util.Log;
+
+import com.taxi123.taxi123android.Configurations;
+import com.taxi123.taxi123android.Utilities;
+import com.taxi123.taxi123android.model.LocationListModel;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
@@ -12,9 +16,11 @@ import org.json.JSONObject;
 
 import java.net.URI;
 
-public class LocationListCollector extends BaseDataCollector {
-    public LocationListCollector(LocationListModel model) {
-        super(model);
+public class LocationStatusCollector extends BaseDataCollector {
+    protected LocationListModel model;
+
+    public LocationStatusCollector(LocationListModel model) {
+        this.model = model;
     }
 
     @Override
@@ -28,16 +34,11 @@ public class LocationListCollector extends BaseDataCollector {
     @Override
     protected void onPreExecute() {
         super.onPreExecute();
-        this.dialog.setMessage(Configurations.MESSAGE_LOADING);
-        this.dialog.show();
     }
 
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        if (dialog.isShowing()) {
-            dialog.dismiss();
-        }
         this.model.notifyDataSetChange();
     }
 
@@ -45,7 +46,8 @@ public class LocationListCollector extends BaseDataCollector {
     private HttpResponse sendHttpRequest() {
         try {
             String link;
-            link = Configurations.SERVER_LINKQUERY_ALL;
+            link = Configurations.SERVER_LINKQUERY_IDSTATUS;
+
             HttpClient client = new DefaultHttpClient();
             HttpGet request = new HttpGet();
             request.setURI(new URI(link));
@@ -68,14 +70,9 @@ public class LocationListCollector extends BaseDataCollector {
                 JSONObject location = locations.getJSONObject(i);
                 String locationIdString = location.getString(Configurations.DATABASE_JSONRESPONSE_LOCATIONID);
                 int id = Utilities.convertStringToInt(locationIdString);
-                String locationName = location.getString(Configurations.DATABASE_JSONRESPONSE_LOCATIONNAME);
-                String address = location.getString(Configurations.DATABASE_JSONRESPONSE_ADDRESS);
-                String postalCodeString = location.getString(Configurations.DATABASE_JSONRESPONSE_POSTALCODE);
-                int postalCode = Utilities.convertStringToInt(postalCodeString);
                 String statusString = location.getString(Configurations.DATABASE_JSONRESPONSE_LOCATIONSTATUS);
                 int status = Utilities.convertStringToInt(statusString);
-                LocationModel locationModel = new LocationModel(id, locationName, address, postalCode, status);
-                this.model.addLocation(locationModel);
+                this.model.setLocationStatus(id, status);
             }
         } catch (JSONException e) {
             return false;

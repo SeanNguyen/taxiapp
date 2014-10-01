@@ -1,6 +1,5 @@
-package com.taxi123.taxi123android;
+package com.taxi123.taxi123android.collector;
 
-import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.util.Log;
 
@@ -12,15 +11,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 public class BaseDataCollector extends AsyncTask<String,Void,String> {
-
-    protected   LocationListModel model;
-    protected ProgressDialog dialog;
-
-
-    public BaseDataCollector(LocationListModel model) {
-        this.model = model;
-        dialog = new ProgressDialog(Configurations.MainActivity);
-    }
 
     @Override
     protected String doInBackground(String... args) {
@@ -34,11 +24,6 @@ public class BaseDataCollector extends AsyncTask<String,Void,String> {
 
     @Override
     protected void onPostExecute(String s) {
-        super.onPostExecute(s);
-        if (dialog.isShowing()) {
-            dialog.dismiss();
-        }
-        this.model.notifyDataSetChange();
     }
 
 

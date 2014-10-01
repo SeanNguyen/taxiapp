@@ -1,7 +1,10 @@
 package com.taxi123.taxi123android;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.location.Location;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
@@ -13,16 +16,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class main extends Activity {
-    LocationAdapter locationAdapter;
+    LocationService locationService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Configurations.MainActivity = this;
         ListView locationListView = (ListView) findViewById(R.id.locationListView);
-        this.locationAdapter = new LocationAdapter(this);
-        locationListView.setAdapter(locationAdapter);
-        this.locationAdapter.refreshLocationList();
+        this.locationService = new LocationService(this);
+        locationListView.setAdapter(locationService);
+        this.locationService.refreshLocationList();
 
 
         //link to google map app when click
@@ -40,12 +43,16 @@ public class main extends Activity {
         h.postDelayed(new Runnable()
         {
             @Override
-            public void run()
-            {
+            public void run() {
                 ((main)Configurations.MainActivity).refreshStatus();
                 h.postDelayed(this, 5000);
             }
-        }, 5000); // 1 second delay (takes millis)
+        }, 5000); // 5 second delay (takes millis)
+
+        //Location
+        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5, 0, locationService);
     }
 
     @Override
@@ -62,11 +69,15 @@ public class main extends Activity {
     }
 
     public void refreshButton_onClick(View view) {
-        this.locationAdapter.refreshLocationList();
+        this.locationService.refreshLocationList();
     }
 
     public void refreshStatus() {
-        this.locationAdapter.refreshStatus();
+        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        Location location2 = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+        Location location3 = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+        this.locationService.refreshStatus();
     }
 
     //private helper methods

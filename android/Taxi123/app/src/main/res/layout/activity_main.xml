@@ -28,7 +28,8 @@
             android:layout_marginRight="4dip"
             android:background="?android:attr/dividerVertical"
             android:layout_alignParentTop="true"
-            android:id="@+id/view" />
+            android:id="@+id/view"
+            android:onClick="refreshButton_onClick"/>
 
         <Button
             android:id="@+id/refreshButton"

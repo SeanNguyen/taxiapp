@@ -13,20 +13,29 @@
             android:layout_height="wrap_content"
             android:textStyle="bold"
             android:gravity="center_vertical"
-            android:layout_weight="2"
+            android:layout_weight="60"
             android:width="0dip"
-            android:height="20sp"
+            android:height="30sp"
             android:text="Location Name"
-            android:textSize="15sp"/>
+            android:textSize="20sp"/>
 
         <TextView
             android:id="@+id/postalCode"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="clip_vertical"
+            android:layout_weight="20"
+            android:gravity="center_vertical"
             android:width="0dip"
             android:text="(000000)"/>
+
+        <TextView
+            android:id="@+id/distance"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="20"
+            android:gravity="center_vertical"
+            android:width="0dip"
+            android:text="Distance"/>
 
     </TableRow>
 
