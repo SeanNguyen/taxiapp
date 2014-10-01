@@ -23,7 +23,7 @@
             android:id="@+id/postalCode"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:gravity="clip_vertical"
             android:width="0dip"
             android:text="(000000)"/>
