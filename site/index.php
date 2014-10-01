@@ -59,12 +59,15 @@ if(isset($_POST['submit'])){
 		try {
 
 			//insert into database with a prepared statement
-			$stmt = $db->prepare('INSERT INTO members (username,password,email,active) VALUES (:username, :password, :email, :active)');
+			$stmt = $db->prepare('INSERT INTO members (username,password,email,active, locationName, address, postalCode) VALUES (:username, :password, :email, :active, :locationName, :address, :postalCode)');
 			$stmt->execute(array(
 				':username' => $_POST['username'],
 				':password' => $hashedpassword,
 				':email' => $_POST['email'],
-				':active' => $activasion
+				':active' => $activasion,
+				':locationName' => $_POST['locationName'],
+				':address' => $_POST['address'],
+				':postalCode' => $_POST['postalCode']
 			));
 			$id = $db->lastInsertId('memberID');
 
@@ -174,9 +177,19 @@ if(isset($_POST['submit'])){
                             </div>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <input type="text" name="locationName" id="locationName" class="form-control input-lg" placeholder="Location Name" value="<?php if(isset($error)){ echo $_POST['locationName']; } ?>" tabindex="5">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="address" id="address" class="form-control input-lg" placeholder="Address" value="<?php if(isset($error)){ echo $_POST['address']; } ?>" tabindex="7">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="postalCode" id="postalCode" class="form-control input-lg" placeholder="Postal Code" value="<?php if(isset($error)){ echo $_POST['postalCode']; } ?>" tabindex="9">
+                    </div>
+                    
                     
                     <div class="row">
-                        <div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="5"></div>
+                        <div class="col-xs-6 col-md-6"><input type="submit" name="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="11"></div>
                     </div>
                 </form>
             </div>

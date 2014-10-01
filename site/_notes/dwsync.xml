@@ -2,7 +2,7 @@
 <dwsync>
 <file name="memberpage.php" server="sgp12.siteground.asia/public_html/taxi/" local="130566137327146594" remote="130565669400000000" Dst="0" />
 <file name="login.php" server="sgp12.siteground.asia/public_html/taxi/" local="130565895884476863" remote="130565427600000000" Dst="0" />
-<file name="index.php" server="sgp12.siteground.asia/public_html/taxi/" local="130565840292377177" remote="130565424000000000" Dst="0" />
+<file name="index.php" server="sgp12.siteground.asia/public_html/taxi/" local="130566222126503079" remote="130565754000000000" Dst="0" />
 <file name="logout.php" server="sgp12.siteground.asia/public_html/taxi/" local="130389870460000000" remote="130565424000000000" Dst="0" />
 <file name="activate.php" server="sgp12.siteground.asia/public_html/taxi/" local="130565741721499245" remote="130565424000000000" Dst="0" />
 <file name="reset.php" server="sgp12.siteground.asia/public_html/taxi/" local="130565766013208652" remote="130565424000000000" Dst="0" />
@@ -11,7 +11,7 @@
 <file name="getLocationName.php" server="sgp12.siteground.asia/public_html/taxi/" local="130565912455254658" remote="130565444400000000" Dst="0" />
 <file name="getLocationAddress.php" server="sgp12.siteground.asia/public_html/taxi/" local="130565915248874443" remote="130565446800000000" Dst="0" />
 <file name="getLocationRequestTimeout.php" server="sgp12.siteground.asia/public_html/taxi/" local="130565942925087432" remote="130565474400000000" Dst="0" />
-<file name="updateLocationStatus.php" server="sgp12.siteground.asia/public_html/taxi/" local="130566131871614555" remote="130565663400000000" Dst="0" />
+<file name="updateLocationStatus.php" server="sgp12.siteground.asia/public_html/taxi/" local="130566215381132345" remote="130565747400000000" Dst="0" />
 <file name="queryIdStatus.php" server="sgp12.siteground.asia/public_html/taxi/" local="130566156788576969" remote="130565689200000000" Dst="0" />
 <file name="queryAllLocations.php" server="sgp12.siteground.asia/public_html/taxi/" local="130566157123894549" remote="130565689200000000" Dst="0" />
 </dwsync>
