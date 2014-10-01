@@ -1,8 +1,7 @@
 <?php
 //include config
 require_once('includes/config.php');
-$username = '"'.$_SESSION['username'].'"';
-$stmt = $db->query("SELECT * FROM members");
+$stmt = $db->query("SELECT memberID, status FROM members");
 $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 if (count($row) > 0) {

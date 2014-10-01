@@ -9,20 +9,38 @@
     tools:context=".main">
 
     <ListView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/locationListView"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
-
-    <Button
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/refreshButton_name"
-        android:id="@+id/refreshButton"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:onClick="refreshButton_onClick"/>
+        android:layout_height="match_parent"
+        android:id="@+id/locationListView"
+        android:layout_above="@+id/relativeLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/relativeLayout">
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dip"
+            android:layout_marginLeft="4dip"
+            android:layout_marginRight="4dip"
+            android:background="?android:attr/dividerVertical"
+            android:layout_alignParentTop="true"
+            android:id="@+id/view" />
+
+        <Button
+            android:id="@+id/refreshButton"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="?android:attr/selectableItemBackground"
+            android:text="@string/refreshButton_name"
+            android:layout_alignParentBottom="true"
+            android:layout_alignLeft="@+id/view"
+            android:layout_alignStart="@+id/view" />
+    </RelativeLayout>
 
 </RelativeLayout>

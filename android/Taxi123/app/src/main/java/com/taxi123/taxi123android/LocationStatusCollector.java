@@ -34,9 +34,6 @@ public class LocationStatusCollector extends BaseDataCollector {
     @Override
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
-        if (dialog.isShowing()) {
-            dialog.dismiss();
-        }
         this.model.notifyDataSetChange();
     }
 
