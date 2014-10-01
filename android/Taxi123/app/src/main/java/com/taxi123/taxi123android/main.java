@@ -15,7 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-public class main extends Activity {
+public class main extends Activity{
     LocationService locationService;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +51,7 @@ public class main extends Activity {
 
         //Location
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5, 0, locationService);
+        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationService);
     }
 
     @Override
@@ -75,9 +74,7 @@ public class main extends Activity {
     public void refreshStatus() {
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        Location location2 = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        Location location3 = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
-        this.locationService.refreshStatus();
+        this.locationService.refreshStatus(location);
     }
 
     //private helper methods

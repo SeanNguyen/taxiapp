@@ -56,20 +56,20 @@ public class LocationListModel extends Model {
     }
 
     public void refreshListOrder(Location location) {
-        this.locationIds = sortByDistance(this.locationIds, location);
-        this.locationIds = sortByStatus(this.locationIds);
+        sortByDistance(location);
+        sortByStatus();
         locationAdapter.notifyDataSetChanged();
     }
 
     public void notifyDataSetChange() {
-        this.locationIds = sortByStatus(this.locationIds);
+        sortByStatus();
         locationAdapter.notifyDataSetChanged();
     }
 
-    private Vector <Integer> sortByStatus (Vector <Integer> original) {
+    private void sortByStatus () {
         Vector <Integer> greenStatus = new Vector<Integer>();
         Vector <Integer> redStatus = new Vector<Integer>();
-        for (Integer id : original) {
+        for (Integer id : this.locationIds) {
             if (this.locationModels.get(id).getStatus() == 1) {
                 greenStatus.add(id);
             } else {
@@ -79,25 +79,22 @@ public class LocationListModel extends Model {
         Vector<Integer> result = new Vector<Integer>();
         result.addAll(greenStatus);
         result.addAll(redStatus);
-        return result;
+        this.locationIds = result;
     }
 
-    private Vector <Integer> sortByDistance (Vector <Integer> original, Location originalLocation) {
-        Location destLocation = new Location("destination");
-
+    private void sortByDistance (Location originalLocation) {
         for (int i = 0; i < this.locationIds.size(); i++) {
             for (int j = 0; j < this.locationIds.size() - 1; j++) {
                 int id = this.locationIds.get(j);
                 int nextId = this.locationIds.get(j + 1);
 
-                float distanceToCurrent = this.locationModels.get(id).calculateDistance(originalLocation);
-                float distanceToNext = this.locationModels.get(nextId).calculateDistance(originalLocation);
+                double distanceToCurrent = this.locationModels.get(id).calculateDistance(originalLocation);
+                double distanceToNext = this.locationModels.get(nextId).calculateDistance(originalLocation);
                 if (distanceToCurrent > distanceToNext) {
                     locationIds.set(j, nextId);
                     locationIds.set(j + 1, id);
                 }
             }
         }
-        return null;
     }
 }

@@ -59,7 +59,7 @@ public class LocationService extends BaseAdapter implements LocationListener{
         locationName.setText(location.getName());
         locationAddr.setText(location.getAddress());
         postalCode.setText("(" + location.getPostalCode() + ")");
-        float d = location.getDistance();
+        double d = location.getDistance();
         if (d > -1)
             distance.setText("" + d);
 
@@ -80,6 +80,8 @@ public class LocationService extends BaseAdapter implements LocationListener{
     //LocationListener
     @Override
     public void onLocationChanged(Location location) {
+        if (location == null)
+            return;
         locations.refreshListOrder(location);
     }
 
@@ -103,7 +105,8 @@ public class LocationService extends BaseAdapter implements LocationListener{
         this.locations.refreshLocationList();
     }
 
-    public void refreshStatus() {
+    public void refreshStatus(Location location) {
         this.locations.refreshLocationStatus();
+        this.locations.refreshListOrder(location);
     }
 }

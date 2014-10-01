@@ -10,6 +10,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,9 +25,9 @@ public class PositionCollector extends BaseDataCollector {
 
     @Override
     protected String doInBackground(String... args) {
-//        HttpResponse response = sendHttpRequest();
-//        String result = convertResponseMessageToString(response);
-//        parserJsonString(result);
+        HttpResponse response = sendHttpRequest();
+        String result = convertResponseMessageToString(response);
+        parserJsonString(result);
         return null;
     }
 
@@ -65,13 +66,14 @@ public class PositionCollector extends BaseDataCollector {
             if (!isSuccess.equals(Configurations.GGLAPI_STATUS_OK))
                 return false;
 
-            JSONObject result = reader.getJSONObject(Configurations.GGLAPI_RESULT);
+            JSONArray resultArray = reader.getJSONArray(Configurations.GGLAPI_RESULT);
+            JSONObject result = resultArray.getJSONObject(0);
             JSONObject geo = result.getJSONObject(Configurations.GGLAPI_GEOMETRY);
             JSONObject location = geo.getJSONObject(Configurations.GGLAPI_LOCATION);
             String lat = location.getString(Configurations.GGLAPI_LATITUDE);
             String lng = location.getString(Configurations.GGLAPI_LONGITUDE);
-            double latitude = Utilities.convertStringToInt(lat);
-            double longitude = Utilities.convertStringToInt(lng);
+            double latitude = Utilities.convertStringToDouble(lat);
+            double longitude = Utilities.convertStringToDouble(lng);
             this.model.setLatitude(latitude);
             this.model.setLongitude(longitude);
         } catch (JSONException e) {
