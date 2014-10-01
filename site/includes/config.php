@@ -13,7 +13,7 @@ define('DBNAME','seannguy_taxi123');
 
 //application address
 define('DIR','http://taxi.seannguyentesting.net/');
-define('SITEEMAIL','Admin@Taxi123.com');
+define('SITEEMAIL','noreply@taxi123.com');
 
 try {
 
