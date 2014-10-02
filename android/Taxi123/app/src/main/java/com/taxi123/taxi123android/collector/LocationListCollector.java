@@ -5,6 +5,7 @@ import android.util.Log;
 
 import com.taxi123.taxi123android.Configurations;
 import com.taxi123.taxi123android.Utilities;
+import com.taxi123.taxi123android.main;
 import com.taxi123.taxi123android.model.LocationListModel;
 import com.taxi123.taxi123android.model.LocationModel;
 
@@ -50,6 +51,7 @@ public class LocationListCollector extends BaseDataCollector {
             dialog.dismiss();
         }
         this.model.notifyDataSetChange();
+        ((main)Configurations.MainActivity).setRefreshStatus(false);
     }
 
     //private helper methods

@@ -9,10 +9,10 @@ public class LocationModel extends  Model {
     private String name;
     private String address;
     private String postalCode;
-    private int status;
+    private int status = 0;
     private double latitude;
     private double longitude;
-    private double distance;
+    private double distance = 0;
 
     public LocationModel(int id, String name, String address, String postalCode, int status) {
         this.id = id;

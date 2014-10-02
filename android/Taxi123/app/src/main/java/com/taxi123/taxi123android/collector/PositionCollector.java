@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.taxi123.taxi123android.Configurations;
 import com.taxi123.taxi123android.Utilities;
+import com.taxi123.taxi123android.main;
 import com.taxi123.taxi123android.model.LocationModel;
 
 import org.apache.http.HttpResponse;
@@ -74,6 +75,8 @@ public class PositionCollector extends BaseDataCollector {
             String lng = location.getString(Configurations.GGLAPI_LONGITUDE);
             double latitude = Utilities.convertStringToDouble(lat);
             double longitude = Utilities.convertStringToDouble(lng);
+            if (((main)Configurations.MainActivity).isRefreshing() || this.model == null)
+                return false;
             this.model.setLatitude(latitude);
             this.model.setLongitude(longitude);
         } catch (JSONException e) {

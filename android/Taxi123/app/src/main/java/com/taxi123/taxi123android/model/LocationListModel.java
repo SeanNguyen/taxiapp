@@ -27,7 +27,10 @@ public class LocationListModel extends Model {
     }
 
     public void setLocationStatus (int id, int status) {
-        this.locationModels.get(id).setStatus(status);
+        LocationModel location = this.locationModels.get(id);
+        if (location == null)
+            return;
+        location.setStatus(status);
     }
 
     public LocationModel getLocationByIndex (int i) {
@@ -62,6 +65,7 @@ public class LocationListModel extends Model {
     }
 
     public void notifyDataSetChange() {
+        sortByDistance();
         sortByStatus();
         locationAdapter.notifyDataSetChanged();
     }
@@ -80,6 +84,22 @@ public class LocationListModel extends Model {
         result.addAll(greenStatus);
         result.addAll(redStatus);
         this.locationIds = result;
+    }
+
+    private void sortByDistance () {
+        for (int i = 0; i < this.locationIds.size(); i++) {
+            for (int j = 0; j < this.locationIds.size() - 1; j++) {
+                int id = this.locationIds.get(j);
+                int nextId = this.locationIds.get(j + 1);
+
+                double distanceToCurrent = this.locationModels.get(id).getDistance();
+                double distanceToNext = this.locationModels.get(nextId).getDistance();
+                if (distanceToCurrent > distanceToNext) {
+                    locationIds.set(j, nextId);
+                    locationIds.set(j + 1, id);
+                }
+            }
+        }
     }
 
     private void sortByDistance (Location originalLocation) {

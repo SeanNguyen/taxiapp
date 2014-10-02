@@ -16,7 +16,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class main extends Activity{
-    LocationAdapter locationAdapter;
+    private LocationAdapter locationAdapter;
+    private boolean isRefreshing = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,9 +45,9 @@ public class main extends Activity{
             @Override
             public void run() {
                 ((main) Configurations.MainActivity).refresh();
-                h.postDelayed(this, 5000);
+                h.postDelayed(this, 2000);
             }
-        }, 5000); // 5 second delay (takes millis)
+        }, 2000); // 5 second delay (takes millis)
     }
 
     @Override
@@ -63,6 +64,7 @@ public class main extends Activity{
     }
 
     public void refreshButton_onClick(View view) {
+        this.isRefreshing = true;
         this.locationAdapter.refreshLocationList();
     }
 
@@ -70,6 +72,14 @@ public class main extends Activity{
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
         this.locationAdapter.refreshStatus(location);
+    }
+
+    public boolean isRefreshing() {
+        return this.isRefreshing;
+    }
+
+    public void setRefreshStatus(boolean status) {
+        this.isRefreshing = status;
     }
 
     //private helper methods

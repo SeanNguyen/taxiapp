@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.taxi123.taxi123android.Configurations;
 import com.taxi123.taxi123android.Utilities;
+import com.taxi123.taxi123android.main;
 import com.taxi123.taxi123android.model.LocationListModel;
 
 import org.apache.http.HttpResponse;
@@ -72,6 +73,8 @@ public class LocationStatusCollector extends BaseDataCollector {
                 int id = Utilities.convertStringToInt(locationIdString);
                 String statusString = location.getString(Configurations.DATABASE_JSONRESPONSE_LOCATIONSTATUS);
                 int status = Utilities.convertStringToInt(statusString);
+                if (((main)Configurations.MainActivity).isRefreshing() || this.model == null)
+                    return false;
                 this.model.setLocationStatus(id, status);
             }
         } catch (JSONException e) {
