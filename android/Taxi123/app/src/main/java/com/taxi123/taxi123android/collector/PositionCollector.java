@@ -46,8 +46,8 @@ public class PositionCollector extends BaseDataCollector {
     private HttpResponse sendHttpRequest() {
         try {
             String link;
-            String addr = model.getAddress();
-            link = generateQueryLink(addr);
+            String postalCode = String.valueOf(model.getPostalCode());
+            link = generateQueryLink(postalCode);
 
             HttpClient client = new DefaultHttpClient();
             HttpGet request = new HttpGet();
@@ -82,7 +82,7 @@ public class PositionCollector extends BaseDataCollector {
         return true;
     }
 
-    private String generateQueryLink (String address) {
-        return Configurations.GGLAPI_LINKQUERY_POSITION + address.replaceAll(" ", "+");
+    private String generateQueryLink (String postalCode) {
+        return Configurations.GGLAPI_LINKQUERY_POSITION + postalCode;
     }
 }

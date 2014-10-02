@@ -5,6 +5,8 @@ import android.app.Activity;
 public class Configurations {
     public static Activity MainActivity = null;
 
+    public static double EARTH_RADIUS = 6371;
+
     public static String BOOLEAN_TRUE = "1";
     public static String BOOLEAN_FALSE = "0";
 
@@ -28,8 +30,9 @@ public class Configurations {
     public static String DATABASE_JSONRESPONSE_POSTALCODE = "postalCode";
     public static String DATABASE_JSONRESPONSE_LOCATIONSTATUS = "status";
 
-    public static String COLOR_INDEMAND = "#008000";
+    public static String COLOR_INDEMAND = "#7fff00";
     public static String COLOR_NOTINDEMAND = "#696969";
+    public static String COLOR_BLACK = "#000000";
 
     public static String MESSAGE_LOADING = "Loading";
 

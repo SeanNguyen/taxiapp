@@ -1,60 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content" android:orientation="vertical"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content" android:orientation="horizontal"
     android:layout_width="fill_parent">
 
-    <TableRow android:layout_width="fill_parent"
-        android:id="@+id/TableRow01"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:id="@+id/locationName"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:gravity="center_vertical"
-            android:layout_weight="60"
-            android:width="0dip"
-            android:height="30sp"
-            android:text="Location Name"
-            android:textSize="20sp"/>
-
-        <TextView
-            android:id="@+id/postalCode"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="20"
-            android:gravity="center_vertical"
-            android:width="0dip"
-            android:text="(000000)"/>
-
-        <TextView
-            android:id="@+id/distance"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="20"
-            android:gravity="center_vertical"
-            android:width="0dip"
-            android:text="Distance"/>
-
-    </TableRow>
-
-    <TableRow android:layout_height="fill_parent"
-        android:layout_width="fill_parent">
-
-        <TextView
-            android:id="@+id/locationAddress"
-            android:layout_width="fill_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:width="0dip"
-            android:gravity="center_vertical"
-            android:text="27 Prince George's Park"/>
-    </TableRow>
-
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="1dp"
+    <View android:id="@+id/statusBar"
+        android:layout_width="10dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_vertical"
         android:background="@android:color/darker_gray"/>
 
-</TableLayout>
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp">
+
+        <TableRow android:layout_width="fill_parent"
+            android:id="@+id/TableRow01"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/locationName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:layout_weight="60"
+                android:width="0dip"
+                android:height="30sp"
+                android:text="Location Name"
+                android:textSize="20sp"/>
+
+        </TableRow>
+
+        <TableRow android:layout_height="fill_parent"
+            android:layout_width="fill_parent">
+
+            <TextView
+                android:id="@+id/locationAddress"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:width="0dip"
+                android:gravity="center_vertical"
+                android:text="27 Prince George's Park"/>
+        </TableRow>
+
+        <TableRow android:layout_height="fill_parent"
+            android:layout_width="fill_parent">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:text="@string/openBracket"/>
+            <TextView
+                android:id="@+id/postalCode"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:text="000000"/>
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:text="@string/closeBracket"/>
+
+            <TextView
+                android:id="@+id/distance"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="20"
+                android:gravity="center"
+                android:text="Distance"/>
+
+        </TableRow>
+
+        <View
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    </TableLayout>
+
+</LinearLayout>

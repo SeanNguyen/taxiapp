@@ -81,8 +81,7 @@ public class LocationListCollector extends BaseDataCollector {
                 int id = Utilities.convertStringToInt(locationIdString);
                 String locationName = location.getString(Configurations.DATABASE_JSONRESPONSE_LOCATIONNAME);
                 String address = location.getString(Configurations.DATABASE_JSONRESPONSE_ADDRESS);
-                String postalCodeString = location.getString(Configurations.DATABASE_JSONRESPONSE_POSTALCODE);
-                int postalCode = Utilities.convertStringToInt(postalCodeString);
+                String postalCode = location.getString(Configurations.DATABASE_JSONRESPONSE_POSTALCODE);
                 String statusString = location.getString(Configurations.DATABASE_JSONRESPONSE_LOCATIONSTATUS);
                 int status = Utilities.convertStringToInt(statusString);
                 LocationModel locationModel = new LocationModel(id, locationName, address, postalCode, status);

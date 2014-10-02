@@ -8,13 +8,13 @@ public class LocationModel extends  Model {
     private int id;
     private String name;
     private String address;
-    private int postalCode;
+    private String postalCode;
     private int status;
     private double latitude;
     private double longitude;
     private double distance;
 
-    public LocationModel(int id, String name, String address, int postalCode, int status) {
+    public LocationModel(int id, String name, String address, String postalCode, int status) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -37,7 +37,7 @@ public class LocationModel extends  Model {
         return this.address;
     }
 
-    public int getPostalCode() {
+    public String getPostalCode() {
         return this.postalCode;
     }
 
@@ -91,13 +91,10 @@ public class LocationModel extends  Model {
     }
 
     public double calculateDistance (Location location) {
-        Location modelLocation = new Location("modelLocation");
-        modelLocation.setLatitude(this.latitude);
-        modelLocation.setLongitude(this.longitude);
-
-        double meterConversion = 1609.00;
-        this.distance = modelLocation.distanceTo(location) * meterConversion;
-
+        Location destLocation = new Location("destLocation");
+        destLocation.setLatitude(this.latitude);
+        destLocation.setLongitude(this.longitude);
+        this.distance = destLocation.distanceTo(location);
         return this.distance;
     }
 }

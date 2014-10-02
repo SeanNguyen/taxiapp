@@ -16,16 +16,16 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class main extends Activity{
-    LocationService locationService;
+    LocationAdapter locationAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Configurations.MainActivity = this;
         ListView locationListView = (ListView) findViewById(R.id.locationListView);
-        this.locationService = new LocationService(this);
-        locationListView.setAdapter(locationService);
-        this.locationService.refreshLocationList();
+        this.locationAdapter = new LocationAdapter(this);
+        locationListView.setAdapter(locationAdapter);
+        this.locationAdapter.refreshLocationList();
 
 
         //link to google map app when click
@@ -40,18 +40,13 @@ public class main extends Activity{
 
         //Timer for refresh data status
         final Handler h = new Handler();
-        h.postDelayed(new Runnable()
-        {
+        h.postDelayed(new Runnable() {
             @Override
             public void run() {
-                ((main)Configurations.MainActivity).refreshStatus();
+                ((main) Configurations.MainActivity).refresh();
                 h.postDelayed(this, 5000);
             }
         }, 5000); // 5 second delay (takes millis)
-
-        //Location
-        LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationService);
     }
 
     @Override
@@ -68,13 +63,13 @@ public class main extends Activity{
     }
 
     public void refreshButton_onClick(View view) {
-        this.locationService.refreshLocationList();
+        this.locationAdapter.refreshLocationList();
     }
 
-    public void refreshStatus() {
+    public void refresh() {
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         Location location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
-        this.locationService.refreshStatus(location);
+        this.locationAdapter.refreshStatus(location);
     }
 
     //private helper methods

@@ -2,7 +2,7 @@ package com.taxi123.taxi123android.model;
 
 import android.location.Location;
 
-import com.taxi123.taxi123android.LocationService;
+import com.taxi123.taxi123android.LocationAdapter;
 import com.taxi123.taxi123android.collector.LocationListCollector;
 import com.taxi123.taxi123android.collector.LocationStatusCollector;
 
@@ -12,9 +12,9 @@ import java.util.Vector;
 public class LocationListModel extends Model {
     private Vector<Integer> locationIds;
     private HashMap<Integer, LocationModel> locationModels;
-    private LocationService locationAdapter;
+    private LocationAdapter locationAdapter;
 
-    public LocationListModel (LocationService locationAdapter) {
+    public LocationListModel (LocationAdapter locationAdapter) {
         this.locationModels = new HashMap<Integer, LocationModel>();
         this.locationAdapter = locationAdapter;
         this.locationIds = new Vector<Integer>();
