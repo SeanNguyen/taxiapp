@@ -64,6 +64,8 @@ public class main extends Activity{
     }
 
     public void refreshButton_onClick(View view) {
+        if (this.isRefreshing)
+            return;
         this.isRefreshing = true;
         this.locationAdapter.refreshLocationList();
     }
